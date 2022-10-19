@@ -4,17 +4,17 @@ namespace Polynomial
 	public class Term
 	{
 		public int Power { get; set; }
-		public double Coeffecient { get; set; }
+		public double Coefficient { get; set; }
 
-		public Term(int power, double coeffecient)
+		public Term(int power, double coefficient)
 		{
 			Power = power;
-			Coeffecient = coeffecient;
+			Coefficient = coefficient;
 		}
 
 		public override string ToString()
 		{
-			return $"{Coeffecient}x^{Power}";
+			return $"{Coefficient}x^{Power}";
 		}
 
 	}

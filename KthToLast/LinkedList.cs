@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using System.Reflection.Metadata.Ecma335;
 
 namespace KthToLast
 {
@@ -400,7 +401,31 @@ namespace KthToLast
         // TODO 
         public T KthToLast(int k)
         {
-            return default(T);
+            if (Head == null)
+            {
+                return default(T);
+            }
+
+            LinkedListNode<T> p1 = Head;
+            LinkedListNode<T> p2 = Head;
+
+            for (int j = 0; j < k; j++)
+            {
+                if (p2 == null)
+                {
+                    return default(T);
+                }
+
+                p2 = p2.Next;
+
+            }
+
+            while (p2.Next != null)
+            {
+                p1 = p1.Next;
+                p2 = p2.Next;
+            }
+            return p1.Data;
         }
     }
 }

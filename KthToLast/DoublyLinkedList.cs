@@ -155,7 +155,7 @@ namespace KthToLast
                 {
                     //insert new node
 
-                    var newNode = new LinkedListNode<T>(newValue);
+                    var newNode = new DoublyLinkedListNode<T>(newValue);
 
                     newNode.Next = currentNode.Next;
                     currentNode.Next = newNode;
