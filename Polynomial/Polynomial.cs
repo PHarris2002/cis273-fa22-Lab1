@@ -46,10 +46,38 @@ namespace Polynomial
 		//TODO
 		public override string ToString()
 		{
-			string result = "";
-			foreach(var term in terms)
+			int length = 0;
+			int count = 0;
+
+            string result = "";
+
+			//gets length of linked list; will be used for printing exceptions
+			foreach (var term in terms)
+            {
+                length++;
+            }
+
+			if (length == 0)
 			{
-				result += term.ToString() + " + ";
+				return "0";
+			}
+
+            foreach (var term in terms)
+			{
+				if (count == length-1)
+				{
+                    if (term.Coefficient == 0)
+					{
+                        result += "0";
+                    }
+					else
+                    result += term.ToString();
+
+					return result;
+
+                }
+				result += term.ToString() + "+";
+				count++;
 			}
 
 			return result;
@@ -77,6 +105,18 @@ namespace Polynomial
         {
             Polynomial difference = new Polynomial();
             //Use AddTerm and Negate here
+            // add all the terms from p1 to sum
+            foreach (var term in p1.terms)
+            {
+                difference.AddTerm(term.Coefficient, term.Power);
+            }
+
+            // use negate
+            foreach (var term in p2.terms)
+            {
+                difference.AddTerm(term.Coefficient * -1, term.Power);
+
+            }
 
             return difference;
         }
@@ -96,9 +136,24 @@ namespace Polynomial
         public static Polynomial Multiply(Polynomial p1, Polynomial p2)
         {
             Polynomial product = new Polynomial();
-            //Do the work; use for loop for this
+			//Do the work; use for loop for this
+			int power = 0;
+			double coefficient = 0;
 
-            return product;
+			foreach (var termp1 in p1.terms)
+			{
+				foreach (var termp2 in p2.terms)
+				{
+					power = termp1.Power + termp2.Power;
+					coefficient = termp1.Coefficient * termp2.Coefficient;
+
+				}
+			}
+
+			return product;
+
+
+            
         }
     }
 }

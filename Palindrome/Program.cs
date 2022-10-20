@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Palindrome;
 public class Program
 {
+    
+
     static void Main(string[] args)
     {
         LinkedList<string> linkedList = new LinkedList<string>();
@@ -15,10 +18,17 @@ public class Program
 
     public static bool IsPalindrome<T>(LinkedList<T> linkedList)
     {
-        // are the first and last items the same?
+        int count = 0;
+        LinkedListNode<T> head = linkedList.First;
 
-        // if so, move toward the middle 
+        LinkedListNode<T> currentNode = head;
+        LinkedListNode<T> temp = head;
 
+        while (temp != null)
+        {
+            temp = temp.Next;
+            count++;
+        }
 
         return true;
     }
