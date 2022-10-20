@@ -6,8 +6,8 @@ namespace Polynomial
     public class PolynomialUnitTests
     {
 
-	//mostly tests Degree and NumberOfTerms for various operations
-	//requires extra checks using ToString()
+        //mostly tests Degree and NumberOfTerms for various operations
+        //requires extra checks using ToString()
         [TestMethod]
         public void ToStringReturn0()
         {
@@ -115,7 +115,7 @@ namespace Polynomial
 
             Term term2 = new Term(0, 3);
             polynomial.AddTerm(term2.Coefficient, term2.Power);
-            Assert.AreEqual("5.1", polynomial.ToString().Substring(0,3));
+            Assert.AreEqual("5.1", polynomial.ToString().Substring(0, 3));
         }
 
         [TestMethod]
@@ -124,7 +124,7 @@ namespace Polynomial
             Polynomial polynomial = new Polynomial();
             Term term1 = new Term(0, 2.1);
             polynomial.AddTerm(term1.Coefficient, term1.Power);
-            Assert.AreNotEqual(1, polynomial.ToString().Length);
+            Assert.AreEqual("2.1", polynomial.ToString());
         }
 
         [TestMethod]
@@ -133,7 +133,7 @@ namespace Polynomial
             Polynomial polynomial = new Polynomial();
             Term term1 = new Term(2, 0);
             polynomial.AddTerm(term1.Coefficient, term1.Power);
-            Assert.AreNotEqual(1, polynomial.ToString().Length);
+            Assert.AreEqual("0", polynomial.ToString());
         }
 
         [TestMethod]
@@ -154,7 +154,7 @@ namespace Polynomial
             Polynomial polynomialSum = Polynomial.Add(polynomial, polynomial2);
             Assert.AreEqual(2, polynomialSum.NumberOfTerms);
             Assert.AreEqual(1, polynomialSum.Degree);
-            Assert.AreEqual("6x^1+4x^0", polynomialSum.ToString());
+            Assert.AreEqual("6x^1+4", polynomialSum.ToString());
         }
 
         [TestMethod]
