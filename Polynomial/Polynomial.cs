@@ -66,12 +66,20 @@ namespace Polynomial
 			{
 				if (count == length-1)
 				{
-                    if (term.Coefficient == 0)
+					if (term.Coefficient == 0)
 					{
-                        result += "0";
-                    }
+						result += "0";
+					}
+
+					else if (term.Power == 0)
+					{
+						result += term.Coefficient;
+					}
+
 					else
-                    result += term.ToString();
+					{
+						result += term.ToString();
+					}
 
 					return result;
 
